@@ -18,6 +18,7 @@
         <property name="contentType" value="text/html; charset=utf-8"/>
     </bean>
 
-    <!--<mvc:annotation-driven/>-->
-
+    <!--mvc:annotation-driven включает @RequestMapping, @RestController и т. д., т.е. те, которые нужны для работы каркаса spring-mvc-->
+    <!--Хотя вроде бы работало и без этого тэга-->
+    <mvc:annotation-driven/>
 </beans>

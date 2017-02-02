@@ -3,14 +3,20 @@ package model;
 import exceptions.IllegalSymbolException;
 import exceptions.LengthFieldsException;
 import exceptions.SpaceFieldsException;
-import exceptions.ValidateEmailFailException;
 
 import javax.persistence.*;
 import java.util.Random;
 
 @Entity
 @Table(name = "`advert`")
+@NamedQueries(
+        {
+                @NamedQuery(name = Advert.GET_ADVERT, query = "select a from Advert a where a.id=:id"),
+                @NamedQuery(name = Advert.GET_ADVERT_LIST, query = "select a from Advert a")
+        })
 public class Advert {
+    public static final String GET_ADVERT = "GET_ADVERT";
+    public static final String GET_ADVERT_LIST = "GET_ADVERT_LIST";
 
     @Id
     @Column(name = "id")
@@ -26,7 +32,7 @@ public class Advert {
     @Column(name = "photo_advert")
     private String photoAdvert;
 
-    @ManyToOne(targetEntity = Category.class)
+    @ManyToOne(targetEntity = Advert.class)
     private Category category;
 
     @Column(name = "number")

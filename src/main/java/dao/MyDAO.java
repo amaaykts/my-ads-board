@@ -1,5 +1,7 @@
 package dao;
 
+import model.Role;
+
 import java.util.List;
 
 public interface MyDAO {
@@ -9,5 +11,7 @@ public interface MyDAO {
 
     int delete(int id);
 
-    Object update(Object object);
+    int update(Object object);
+
+    int add(Object object);
 }

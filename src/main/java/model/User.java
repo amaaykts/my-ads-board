@@ -15,8 +15,17 @@ import java.util.List;
 @Entity
 @Table(name = "`user`")
 @NamedQuery(name = User.GET_USER, query = "select u from User u where u.name = :name")
+@NamedQueries(
+        {
+                @NamedQuery(name = User.GET_USER, query = "select u from User u where u.id=:id"),
+                @NamedQuery(name = User.GET_USER_LIST, query = "select u from User u"),
+                @NamedQuery(name = User.GET_USER_NAME, query = "select u from User u where u.name = :name")
+        })
 public class User {
-    public static final String GET_USER = "User.getUser";
+    public static final String GET_USER = "User.GET_USER";
+    public static final String GET_USER_NAME = "User.GET_USER_LIST";
+    public static final String GET_USER_LIST = "User.GET_USER_NAME";
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,7 +64,7 @@ public class User {
 
 
     public User() {
-        this.passwordHashCode = DigestUtils.md5Hex("a1maaykts");
+//        this.passwordHashCode = DigestUtils.md5Hex("a1maaykts");
     }
 
     public User(String name, String surname, String email, Date dateOfBirth, Role role, String password) throws ValidateEmailFailException, IllegalSymbolException, LengthFieldsException, SpaceFieldsException {

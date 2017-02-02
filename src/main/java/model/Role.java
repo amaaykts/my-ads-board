@@ -4,10 +4,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "role")
-@NamedQuery(name = Role.GET_ROLE, query = "select r from Role r where r.name = :name")
-
+@NamedQueries(
+        {
+                @NamedQuery(name = Role.GET_ROLE, query = "select r from Role r where r.id=:id"),
+                @NamedQuery(name = Role.GET_ROLE_LIST, query = "select r from Role r"),
+                @NamedQuery(name = Role.GET_ROLE_NAME, query = "select r from Role r where r.name = :name")
+        })
 public class Role {
-    public static final String GET_ROLE = "Role.getRole";
+    public static final String GET_ROLE = "Role.GET_ROLE";
+    public static final String GET_ROLE_LIST = "Role.GET_ROLE_LIST";
+    public static final String GET_ROLE_NAME = "Role.GET_ROLE_NAME";
 
     @Id
     @Column(name = "id")

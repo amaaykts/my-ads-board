@@ -1,5 +1,7 @@
 package service;
 
+import model.Advert;
+
 import java.util.List;
 
 public interface MyService {
@@ -9,5 +11,8 @@ public interface MyService {
 
     int delete(int id);
 
-    Object update(Object object);
+    int update(Object object);
+
+    int add(Object object);
+
 }

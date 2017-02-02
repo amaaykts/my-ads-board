@@ -13,13 +13,52 @@
 
     <!--Где хранятся properties-->
     <context:property-placeholder location="classpath:database.properties"/>
-    <!--Бины для работы с базой-->
+    <!--Настройки соединения с базой-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+    <!--Настройки работы с базой-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="show_sql">${hibernate.showsql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>  <!--Классы с аннотациями для базы-->
+                <value>model.Advert</value>
+                <value>model.Advert</value>
+                <value>model.Role</value>
+                <value>model.User</value>
+            </list>
+        </property>
+    </bean>
 
     <!--Буду использовать для Autowired-->
     <!--Бины классов DAO-->
+    <bean id="advertDAO" class="dao.AdvertDAOImpl"/>
+    <bean id="categoryDAO" class="dao.CategoryDAOImpl"/>
+    <bean id="roleDAO" class="dao.RoleDAOImpl"/>
+    <bean id="userDAO" class="dao.UserDAOImpl"/>
 
     <!--Бины классов Service-->
+    <bean id="advertService" class="service.AdvertServiceImpl"/>
+    <bean id="categoryService" class="service.CategoryServiceImpl"/>
+    <bean id="roleService" class="service.RoleServiceImpl"/>
+    <bean id="userService" class="service.UserServiceImpl"/>
 
     <!--Где искать компоненты-->
     <context:component-scan base-package="controller"/>
+
+    <!--Для работы в транзакциях-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
