@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     @RequestMapping("/user")
     public String index() {
-        System.out.println("user");
+        System.out.println("/user");
         return "index";
     }
 }

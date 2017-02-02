@@ -14,7 +14,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "`user`")
-@NamedQuery(name = User.GET_USER, query = "select u from User u where u.name = :name")
 @NamedQueries(
         {
                 @NamedQuery(name = User.GET_USER, query = "select u from User u where u.id=:id"),

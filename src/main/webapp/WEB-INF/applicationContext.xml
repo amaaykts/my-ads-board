@@ -33,8 +33,8 @@
         <property name="annotatedClasses">
             <list>  <!--Классы с аннотациями для базы-->
                 <value>model.Advert</value>
-                <value>model.Category</value>
                 <value>model.Role</value>
+                <value>model.Category</value>
                 <value>model.User</value>
             </list>
         </property>

@@ -10,8 +10,8 @@ import javax.persistence.*;
                 @NamedQuery(name = Category.GET_CATEGORY_LIST, query = "select c from Category c")
         })
 public class Category {
-    public static final String GET_CATEGORY = "Advert.getCategory";
-    public static final String GET_CATEGORY_LIST = "Advert.getCategory";
+    public static final String GET_CATEGORY = "Category.GET_CATEGORY";
+    public static final String GET_CATEGORY_LIST = "Category.GET_CATEGORY_LIST";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

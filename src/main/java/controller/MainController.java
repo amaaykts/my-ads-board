@@ -19,7 +19,9 @@ public class MainController {
     @RequestMapping("/")
     public String index() {
         List<Advert> adverts = getAdverts();
-
+        for (Advert a:adverts) {
+            System.out.println(a);
+        }
         System.out.println("index");
         return "index";
     }

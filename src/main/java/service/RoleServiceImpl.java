@@ -1,5 +1,6 @@
 package service;
 
+import dao.MyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -9,7 +10,7 @@ public class RoleServiceImpl implements MyService {
 
     @Autowired
     @Qualifier(value = "roleDAO")
-    private MyService dao;
+    private MyDAO dao;
 
     public Object get(int id) {
         return dao.get(id);

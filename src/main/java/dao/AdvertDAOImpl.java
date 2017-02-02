@@ -1,6 +1,5 @@
 package dao;
 
-import oldDAO.AdvertDAO;
 import model.Advert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,7 +15,7 @@ import java.util.List;
  */
 @EnableTransactionManagement
 @Transactional
-public class AdvertDAOImpl implements AdvertDAO {
+public class AdvertDAOImpl implements MyDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -28,9 +27,9 @@ public class AdvertDAOImpl implements AdvertDAO {
         return advert;
     }
 
-    public List<Advert> list() {
+    public List<Object> list() {
         Session session = sessionFactory.openSession();
-        List<Advert> list = session.getNamedQuery(Advert.GET_ADVERT_LIST).list();
+        List<Object> list = session.getNamedQuery(Advert.GET_ADVERT_LIST).list();
         session.close();
         return list;
     }
@@ -47,7 +46,7 @@ public class AdvertDAOImpl implements AdvertDAO {
     }
 
     @Transactional
-    public int update(Advert object) {
+    public int update(Object object) {
         Session session = sessionFactory.openSession();
         session.update(object);
         Serializable id = session.getIdentifier(object);
@@ -57,7 +56,7 @@ public class AdvertDAOImpl implements AdvertDAO {
     }
 
     @Transactional
-    public int add(Advert object) {
+    public int add(Object object) {
         Session session = sessionFactory.openSession();
         Serializable serializable = session.save(object);
         session.close();
