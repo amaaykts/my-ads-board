@@ -50,7 +50,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Advert{" +
+        return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

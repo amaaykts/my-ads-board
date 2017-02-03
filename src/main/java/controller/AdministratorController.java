@@ -28,7 +28,9 @@ public class AdministratorController {
     @Qualifier(value = "roleService")
     private MyService roleService;
 
-    /**Список пользователей, новые категории, новые роли*/
+    /**
+     * Список пользователей, новые категории, новые роли
+     */
     @RequestMapping("/admin")
     public String users(Model model) {
         model.addAttribute("users", getUsers());
@@ -38,21 +40,27 @@ public class AdministratorController {
         return "index";
     }
 
-    /**Заведение нового администратора*/
+    /**
+     * Заведение нового администратора
+     */
     @RequestMapping("/admin/signup")
     public String signup(Model model) {
         System.out.println("/admin/signup");
         return "index";
     }
 
-    /**Заведение новой категории, нужно перекидывать сюда а отсюда на admins redirect*/
+    /**
+     * Заведение новой категории, нужно перекидывать сюда а отсюда на admins redirect
+     */
     @RequestMapping("/admin/settings/add_category")
     public String addCategory(Model model) {
         System.out.println("/admin/settings/add_category");
         return "index";
     }
 
-    /**Заведение новой роли, нужно перекидывать сюда а отсюда на admins redirect*/
+    /**
+     * Заведение новой роли, нужно перекидывать сюда а отсюда на admins redirect
+     */
     @RequestMapping("/admin/settings/add_role")
     public String addRole(Model model) {
         System.out.println("/admin/settings/add_role");
