@@ -26,7 +26,7 @@ public class MainController {
             System.out.println(a);
         }
         System.out.println("/");
-        return "index";
+        return "index.html";
     }
 
     @RequestMapping(value = "/ads", method = RequestMethod.GET)

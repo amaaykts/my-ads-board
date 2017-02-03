@@ -9,14 +9,36 @@
         http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd">
     <!--Где искать компоненты-->
     <context:component-scan base-package="controller"/>
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!-- Перед названием страницы добавляется prefix -->
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <!-- После названия страницы добавляется suffix -->
-        <property name="suffix" value=".jsp"/>
 
-        <property name="contentType" value="text/html; charset=utf-8"/>
+    <!--ThymeLeaf-->
+    <bean id="templateResolver"
+          class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <!--<property name="suffix" value=".html" />--><!--Из-за этого не хотела открываться страница-->
+        <property name="templateMode" value="HTML5" />
     </bean>
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring4.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver" />
+    </bean>
+
+    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
+        <property name="order" value="1" />
+        <property name="viewNames" value="*.html,*.xhtml" />
+    </bean>
+
+    <!--Стандартный ViewResolver-->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--&lt;!&ndash; Перед названием страницы добавляется prefix &ndash;&gt;-->
+        <!--<property name="prefix" value="/WEB-INF/pages/"/>-->
+        <!--&lt;!&ndash; После названия страницы добавляется suffix &ndash;&gt;-->
+        <!--<property name="suffix" value=".jsp"/>-->
+
+        <!--<property name="contentType" value="text/html; charset=utf-8"/>-->
+    <!--</bean>-->
+
+
 
     <!--mvc:annotation-driven включает @RequestMapping, @RestController и т. д., т.е. те, которые нужны для работы каркаса spring-mvc-->
     <!--Хотя вроде бы работало и без этого тэга-->
