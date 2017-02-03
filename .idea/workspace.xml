@@ -1,40 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d29d5752-105a-4b18-96ce-3cd8cc4b9892" name="Default" comment="Resolve bugz">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata.values.at" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata.keystream" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata.keystream.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata_i" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/.idea/dataSources/e45b1b09-7841-4def-813d-7b7730902115/_metadata_/metadata_i.len" />
+    <list default="true" id="d29d5752-105a-4b18-96ce-3cd8cc4b9892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme" afterPath="$PROJECT_DIR$/readme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/AdministratorController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/AdministratorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/AdvertDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/AdvertDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/CategoryDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/CategoryDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/MyDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/MyDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/RoleDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/RoleDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Advert.java" afterPath="$PROJECT_DIR$/src/main/java/model/Advert.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Category.java" afterPath="$PROJECT_DIR$/src/main/java/model/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Role.java" afterPath="$PROJECT_DIR$/src/main/java/model/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/AdvertServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/AdvertServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/CategoryServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/CategoryServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/MyService.java" afterPath="$PROJECT_DIR$/src/main/java/service/MyService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/RoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/my-ads-board/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/target/my-ads-board/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/my-ads-board/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/target/my-ads-board/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/my-ads-board/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/my-ads-board/WEB-INF/web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -906,7 +874,7 @@
       <workItem from="1485962428682" duration="7316000" />
       <workItem from="1486057967447" duration="16000" />
       <workItem from="1486059954378" duration="5886000" />
-      <workItem from="1486135840996" duration="2155000" />
+      <workItem from="1486135840996" duration="2260000" />
     </task>
     <task id="LOCAL-00001" summary="Add model, service, dao&#10;Add web.xml, dispatcher, ApplicationContext">
       <created>1485985047090</created>
@@ -936,11 +904,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486065385394</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Before ThymeLeaf">
+      <created>1486138118298</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1486138118298</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15373000" />
+    <option name="totallyTimeSpent" value="15478000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1012,7 +987,8 @@
     <MESSAGE value="Add model, service, dao&#10;Add web.xml, dispatcher, ApplicationContext" />
     <MESSAGE value="Add new controllers and URL&#10;Add dao and services" />
     <MESSAGE value="Resolve bugz" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolve bugz" />
+    <MESSAGE value="Before ThymeLeaf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Before ThymeLeaf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
