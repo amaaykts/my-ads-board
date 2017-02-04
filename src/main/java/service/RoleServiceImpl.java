@@ -31,4 +31,9 @@ public class RoleServiceImpl implements MyService {
     public int add(Object object) {
         return dao.add(object);
     }
+
+    @Override
+    public Object get(String name) {
+        return dao.get(name);
+    }
 }

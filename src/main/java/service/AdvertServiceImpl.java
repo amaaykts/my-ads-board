@@ -12,6 +12,11 @@ public class AdvertServiceImpl implements MyService {
     @Qualifier(value = "advertDAO")
     private MyDAO dao;
 
+    @Override
+    public Object get(String name) {
+        return dao.get(name);
+    }
+
     public Object get(int id) {
         return dao.get(id);
     }

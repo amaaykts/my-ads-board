@@ -12,10 +12,12 @@ import java.util.Random;
 @NamedQueries(
         {
                 @NamedQuery(name = Advert.GET_ADVERT, query = "select a from Advert a where a.id=:id"),
+                @NamedQuery(name = Advert.GET_ADVERT_NAME, query = "select a from Advert a where a.name=:name"),
                 @NamedQuery(name = Advert.GET_ADVERT_LIST, query = "select a from Advert a")
         })
 public class Advert {
     public static final String GET_ADVERT = "GET_ADVERT";
+    public static final String GET_ADVERT_NAME = "GET_ADVERT_NAME";
     public static final String GET_ADVERT_LIST = "GET_ADVERT_LIST";
 
     @Id
@@ -32,7 +34,7 @@ public class Advert {
     @Column(name = "photo_advert")
     private String photoAdvert;
 
-    @ManyToOne(targetEntity = Advert.class)
+    @ManyToOne(targetEntity = Category.class)
     private Category category;
 
     @Column(name = "number")

@@ -24,6 +24,13 @@ public class RoleDAOImpl implements MyDAO {
         return advert;
     }
 
+    public Role get(String name) {
+        Session session = sessionFactory.openSession();
+        Role advert = (Role) session.getNamedQuery(Role.GET_ROLE_NAME).setParameter("name", name).uniqueResult();
+        session.close();
+        return advert;
+    }
+
     public List<Object> list() {
         Session session = sessionFactory.openSession();
         List<Object> list = session.getNamedQuery(Role.GET_ROLE_LIST).list();

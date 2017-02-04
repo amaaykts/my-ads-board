@@ -28,6 +28,14 @@ public class CategoryDAOImpl implements MyDAO {
         return advert;
     }
 
+    @Override
+    public Object get(String name) {
+        Session session = sessionFactory.openSession();
+        Category advert = (Category) session.getNamedQuery(Category.GET_CATEGORY_NAME).setParameter("name", name).uniqueResult();
+        session.close();
+        return advert;
+    }
+
     public List<Object> list() {
         Session session = sessionFactory.openSession();
         List<Object> list = session.getNamedQuery(Category.GET_CATEGORY_LIST).list();

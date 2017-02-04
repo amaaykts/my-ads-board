@@ -1,5 +1,6 @@
 package dao;
 
+import model.Category;
 import model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,6 +21,14 @@ public class UserDAOImpl implements MyDAO {
     public User get(int id) {
         Session session = sessionFactory.openSession();
         User advert = (User) session.get(User.class, id);
+        session.close();
+        return advert;
+    }
+
+    @Override
+    public Object get(String name) {
+        Session session = sessionFactory.openSession();
+        User advert = (User) session.getNamedQuery(User.GET_USER_NAME).setParameter("name", name).uniqueResult();
         session.close();
         return advert;
     }

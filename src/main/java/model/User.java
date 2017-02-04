@@ -113,16 +113,19 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws LengthFieldsException {
         this.name = name;
+        validateFieldLength(name,4);
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
+    public void setSurname(String surname) throws LengthFieldsException {
         this.surname = surname;
+        validateFieldLength(surname,4);
+
     }
 
     public String getEmail() {
@@ -255,7 +258,8 @@ public class User {
                 '}';
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws ValidateEmailFailException {
         this.email = email;
+        validateFieldEmail(email);
     }
 }

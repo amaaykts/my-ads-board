@@ -27,6 +27,14 @@ public class AdvertDAOImpl implements MyDAO {
         return advert;
     }
 
+    @Override
+    public Object get(String name) {
+        Session session = sessionFactory.openSession();
+        Advert advert = (Advert) session.getNamedQuery(Advert.GET_ADVERT_NAME).setParameter("name", name).uniqueResult();
+        session.close();
+        return advert;
+    }
+
     public List<Object> list() {
         Session session = sessionFactory.openSession();
         List<Object> list = session.getNamedQuery(Advert.GET_ADVERT_LIST).list();
