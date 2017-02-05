@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.MyService;
 
+import javax.jws.soap.SOAPBinding;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,23 +38,25 @@ public class MainController {
     private MyService userService;
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
         List<Advert> adverts = getAdverts();
-        for (Advert a : adverts) {
-            System.out.println(a);
-        }
+//        for (Advert a : adverts) {
+//            System.out.println(a);
+//        }
         System.out.println("/");
+        model.addAttribute("adverts", adverts);
         return "index.html";
     }
 
     @RequestMapping(value = "/ads", method = RequestMethod.GET)
     public String ads(@RequestParam int id, Model model) {
-        List<Advert> adverts = getAdverts();
-        for (Advert a : adverts) {
-            System.out.println(a);
-        }
+
+        Advert advert = (Advert) advertService.get(id);
         System.out.println("/ads");
-        return "index";
+        model.addAttribute("ads", advert);
+
+        model.addAttribute("author", getUser(advert.getId()));
+        return "ads.html";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -78,10 +81,9 @@ public class MainController {
             @RequestParam(name = "password") String password,
             @RequestParam(name = "repeatPassword") String repeatPassword,
             Model model) {
-
         if (password.equals(repeatPassword)) {
             try {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = dateFormat.parse(dateOfBirth);
                 Role role = (Role) roleService.get("user");
                 User user = new User(name, surname, email, date, role, password);
@@ -119,5 +121,22 @@ public class MainController {
             advertList.add((Advert) o);
         }
         return advertList;
+    }
+
+    private User getUser(int advId) {
+        List<User> users = new ArrayList<User>();
+        User user = null;
+        for (Object o : userService.list()) {
+            users.add((User) o);
+        }
+        for (User user1 : users) {
+            List<Advert> adverts = user1.getAdverts();
+            for (Advert advert : adverts) {
+                if (advert.getId() == advId) {
+                    user = user1;
+                }
+            }
+        }
+        return user;
     }
 }

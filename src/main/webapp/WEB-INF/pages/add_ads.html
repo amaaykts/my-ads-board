@@ -13,11 +13,15 @@
 <form action="/user/add" method="post">
     <div>
         <label for="nameUser">User name</label>
-        <input id="nameUser" type="text" name="nameUser"/>
+        <select id="nameUser" name="nameUser">
+            <option th:each="user:${users}" th:text="${user.getName()}"/>
+        </select>
     </div>
     <div>
         <label for="category">Category name</label>
-        <input id="category" type="text" name="category"/>
+        <select id="category" name="categoryName">
+            <option th:each="category:${categories}" th:text="${category.getName()}"/>
+        </select>
     </div>
     <div>
         <label for="name">Ads name</label>

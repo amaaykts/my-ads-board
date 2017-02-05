@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.MyService;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class AdministratorController {
         model.addAttribute("categories", getCategory());
         model.addAttribute("roles", getRoles());
         System.out.println("/admin");
-        return "index";
+        return "admin.html";
     }
 
     /**
@@ -57,17 +58,19 @@ public class AdministratorController {
             @RequestParam(name = "name") String name,
             @RequestParam(name = "surname") String surname,
             @RequestParam(name = "email") String email,
+            @RequestParam(name = "role") String roleName,
             @RequestParam(name = "dateOfBirth") String dateOfBirth,
             @RequestParam(name = "password") String password,
             @RequestParam(name = "repeatPassword") String repeatPassword,
             Model model) {
         System.out.println("/admin/signup");
+//        System.out.println(role);
 //        System.out.println(name);
         if (password.equals(repeatPassword)) {
             try {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = dateFormat.parse(dateOfBirth);
-                Role role = (Role) roleService.get("administrator");
+                Role role = (Role) roleService.get(roleName);
                 User user = new User(name, surname, email, date, role, password);
                 userService.add(user);
                 model.addAttribute("success", "Added a new administrator: " + name);
@@ -94,8 +97,9 @@ public class AdministratorController {
      * Заведение нового администратора
      */
     @RequestMapping(value = "/admin/signup", method = RequestMethod.GET)
-    public String signup() {
-
+    public String signup(Model model) {
+        List<Role> list = getRoles();
+        model.addAttribute("list", list);
         return "admin_registration.html";
     }
 
@@ -117,14 +121,16 @@ public class AdministratorController {
      * Заведение новой роли, нужно перекидывать сюда а отсюда на admins redirect
      */
     @RequestMapping(value = "/admin/settings/add_role", method = RequestMethod.POST)
-    public String addRole(@RequestParam(name = "name") String name, Model model) {
+    public String addRole(
+            @RequestParam(name = "name") String name,
+            Model model) {
         System.out.println("/admin/settings/add_role");
-//        System.out.println(name);
-//        TODO Добавляем роль
-        Role role = new Role(name);
-        roleService.add(role);
-        model.addAttribute("success", "Added a new role: " + name);
 
+//        TODO Добавляем роль
+//        Role role = new Role(name);
+//        roleService.add(role);
+        model.addAttribute("success", "Added a new role: " + name);
+        System.out.println(name);
         return "admin_registration.html";
     }
 

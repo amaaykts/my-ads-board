@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title>Main page</title>
+    <title>User settings</title>
 </head>
 <body>
 <table border="1" width="100%">
@@ -17,17 +17,35 @@
         <td><a href="/admin">Administrator</a></td>
     </tr>
 </table>
-<h2>Adverts</h2>
+<a href="/user/add">Add new ads</a><br/>
+
+<h2>User</h2>
 <table border="1" width="100%">
     <tr align="center">
         <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    <tr align="center">
+        <td th:text="${user.getName()}"/>
+        <td th:text="${user.getSurname()}"/>
+    </tr>
+</table>
+<br/>
+<table border="1" width="100%">
+    <tr align="center">
+        <th>Number</th>
+        <th>Name</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Edit</th>
+        <!--<th>Delete</th>-->
     </tr>
-    <tr th:each="adv : ${adverts}" align="center">
-        <td><a th:href="@{/ads(id=${adv.getId()})}"><p th:text="${adv.getName()}"/></a></td>
+    <tr th:each="adv : ${user.getAdverts()}" align="center">
+        <td th:text="${adv.getNumber()}"/>
+        <td th:text="${adv.getName()}"/>
         <td th:text="${adv.getDescription()}"/>
         <td th:text="${adv.getPrice()}"/>
+        <td><a href="/user/settings?edit=" th:href="@{/user/edit(id=${adv.getId()})}">edit</a></td>
     </tr>
 </table>
 </body>

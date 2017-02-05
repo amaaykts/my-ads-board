@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title>Main page</title>
+    <title>Personal</title>
 </head>
 <body>
 <table border="1" width="100%">
@@ -17,17 +17,21 @@
         <td><a href="/admin">Administrator</a></td>
     </tr>
 </table>
-<h2>Adverts</h2>
+<h2>Users</h2>
 <table border="1" width="100%">
     <tr align="center">
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
+        <th>User name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Date of birth</th>
+        <th>Date of registration</th>
     </tr>
-    <tr th:each="adv : ${adverts}" align="center">
-        <td><a th:href="@{/ads(id=${adv.getId()})}"><p th:text="${adv.getName()}"/></a></td>
-        <td th:text="${adv.getDescription()}"/>
-        <td th:text="${adv.getPrice()}"/>
+    <tr th:each="user : ${users}" align="center">
+        <td><a th:href="@{/user/settings(username=${user.getName()})}"> <p th:text="${user.getName()}"/> </a></td>
+        <td th:text="${user.getSurname()}"/>
+        <td th:text="${user.getEmail()}"/>
+        <td th:text="${user.getDateOfBirth()}"/>
+        <td th:text="${user.getDateOfRegistation()}"/>
     </tr>
 </table>
 </body>

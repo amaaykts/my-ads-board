@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--layout:decorator="layouts/default">-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>Admin</title>
+</head>
+<body>
+<table border="1" width="100%">
+    <tr align="center">
+        <td><a href="/">Company name / Logo</a></td>
+        <td><a href="/admin/signup">Signup</a></td>
+        <td><a href="/admin">Administrator</a></td>
+    </tr>
+</table>
+<h2>Users</h2>
+<table border="1" width="100%">
+    <tr align="center">
+        <th>User name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Date of birth</th>
+        <th>Date of registration</th>
+    </tr>
+    <tr th:each="user : ${users}" align="center">
+        <td><p th:text="${user.getName()}"/></td>
+        <td th:text="${user.getSurname()}"/>
+        <td th:text="${user.getEmail()}"/>
+        <td th:text="${user.getDateOfBirth()}"/>
+        <td th:text="${user.getDateOfRegistation()}"/>
+    </tr>
+</table>
+<h2>Roles</h2>
+<table border="1" width="100%">
+    <tr align="center">
+        <th>Name</th>
+    </tr>
+    <tr th:each="role : ${roles}" align="center">
+        <td th:text="${role.getName()}"/>
+    </tr>
+</table>
+<h2>Categories</h2>
+<table border="1" width="100%">
+    <tr align="center">
+        <th>Name</th>
+    </tr>
+    <tr th:each="category : ${categories}" align="center">
+        <td th:text="${category.getName()}"/>
+    </tr>
+</table>
+
+</body>
+</html>

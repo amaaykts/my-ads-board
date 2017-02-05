@@ -4,10 +4,17 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <!--layout:decorator="layouts/default">-->
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Users</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <title>Add new roles, categories and administrator</title>
 </head>
 <body>
+<table border="1" width="100%">
+    <tr align="center">
+        <td><a href="/">Company name / Logo</a></td>
+        <td><a href="/admin/signup">Signup</a></td>
+        <td><a href="/admin">Administrator</a></td>
+    </tr>
+</table>
 <th th:text="${error}"/>
 <th th:text="${success}"/>
 <br/>
@@ -50,9 +57,8 @@
     </div>
     <div>
         <label for="role">Roles</label>
-        <select id="role">
-            <option>user</option>
-            <option>administrator</option>
+        <select id="role" name="role">
+            <option th:each="l : ${list}" th:text="${l.getName()}"/>
         </select>
     </div>
     <div>

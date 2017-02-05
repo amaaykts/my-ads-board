@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title>Main page</title>
+    <title>Admin</title>
 </head>
 <body>
 <table border="1" width="100%">
@@ -17,18 +17,23 @@
         <td><a href="/admin">Administrator</a></td>
     </tr>
 </table>
-<h2>Adverts</h2>
+<h2>Advert</h2>
 <table border="1" width="100%">
     <tr align="center">
+        <th>Number</th>
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Author</th>
     </tr>
-    <tr th:each="adv : ${adverts}" align="center">
-        <td><a th:href="@{/ads(id=${adv.getId()})}"><p th:text="${adv.getName()}"/></a></td>
-        <td th:text="${adv.getDescription()}"/>
-        <td th:text="${adv.getPrice()}"/>
+    <tr align="center">
+        <td th:text="${ads.getNumber()}"/>
+        <td th:text="${ads.getName()}"/>
+        <td th:text="${ads.getDescription()}"/>
+        <td th:text="${ads.getPrice()}"/>
+        <td th:text="${author.getName()}"/>
     </tr>
 </table>
+
 </body>
 </html>

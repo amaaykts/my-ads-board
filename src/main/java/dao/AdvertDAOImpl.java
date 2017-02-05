@@ -42,7 +42,9 @@ public class AdvertDAOImpl implements MyDAO {
         return list;
     }
 
+    /**Not good*/
     @Transactional
+    @Deprecated
     public int delete(int id) {
         Session session = sessionFactory.openSession();
         Advert advert = (Advert) session.get(Advert.class, id);

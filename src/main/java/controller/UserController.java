@@ -1,6 +1,9 @@
 package controller;
 
+import com.sun.javafx.sg.prism.NGShape;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import exceptions.LengthFieldsException;
+import exceptions.ValidateEmailFailException;
 import model.Advert;
 import model.Category;
 import model.User;
@@ -12,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.MyService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -27,9 +33,23 @@ public class UserController {
     @Qualifier(value = "userService")
     private MyService userService;
 
+    /**
+     * Список пользователей, новые категории, новые роли
+     */
+    @RequestMapping("/users")
+    public String users(Model model) {
+        model.addAttribute("users", getUsers());
+        System.out.println("users");
+        return "personal.html";
+    }
+
     @RequestMapping(value = "/user/add", method = RequestMethod.GET)
-    public String add() {
+    public String add(Model model) {
         System.out.println("/user/add");
+        List<User> users = getUsers();
+        model.addAttribute("users", users);
+        List<Category> categories = getCategory();
+        model.addAttribute("categories", categories);
         return "add_ads.html";
     }
 
@@ -58,21 +78,60 @@ public class UserController {
         return "add_ads.html";
     }
 
+
     @RequestMapping(value = "/user/edit", method = RequestMethod.GET)
     public String edit(@RequestParam int id, Model model) {
+        System.out.println(id);
         System.out.println("/user/edit");
-        return "index";
+        Advert advert = (Advert) advertService.get(id);
+        model.addAttribute("advert", advert);
+        return "advert_edit.html";
+    }
+
+    @RequestMapping(value = "/user/update", method = RequestMethod.POST)
+    public String update(
+            @RequestParam int id,
+            @RequestParam String name,
+            @RequestParam String description,
+            Model model) {
+        Advert advert = (Advert) advertService.get(id);
+        advert.setName(name);
+        advert.setDescription(description);
+        advertService.update(advert);
+
+        return "user.html";
     }
 
     @RequestMapping(value = "/user/delete", method = RequestMethod.GET)
     public String delete(@RequestParam int id, Model model) {
-        System.out.println("/user/delete");
-        return "index";
+        advertService.delete(id);
+//        System.out.println(id);
+//        System.out.println("/user/settings/delete");
+        return "admin.html";
     }
 
+
     @RequestMapping(value = "/user/settings", method = RequestMethod.GET)
-    public String settings(@RequestParam int username, Model model) {
+    public String settings(@RequestParam String username, Model model) {
         System.out.println("/user/settings");
-        return "index";
+        User user = (User) userService.get(username);
+        model.addAttribute("user", user);
+        return "user.html";
+    }
+
+    private List<User> getUsers() {
+        List<User> users = new ArrayList<User>();
+        for (Object o : userService.list()) {
+            users.add((User) o);
+        }
+        return users;
+    }
+
+    private List<Category> getCategory() {
+        List<Category> categories = new ArrayList<Category>();
+        for (Object o : categoryService.list()) {
+            categories.add((Category) o);
+        }
+        return categories;
     }
 }
