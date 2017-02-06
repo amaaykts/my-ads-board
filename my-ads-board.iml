@@ -58,5 +58,7 @@
     <orderEntry type="library" name="Maven: org.unbescape:unbescape:1.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:bootstrap:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:jquery:3.1.1-1" level="project" />
   </component>
 </module>

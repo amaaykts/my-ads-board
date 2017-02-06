@@ -5,52 +5,72 @@
 <!--layout:decorator="layouts/default">-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel='stylesheet' href='/webjars/bootstrap/3.1.0/css/bootstrap.min.css'/>
+    <link rel='text/javascript' href='/webjars/jquery/3.1.1-1/jquery.min.js'/>
+    <link rel='text/javascript' href='/webjars/bootstrap/3.1.0/js/bootstrap.min.js'/>
+    <link rel='stylesheet' href='http://getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css'/>
 
     <title>Admin</title>
 </head>
 <body>
-<table border="1" width="100%">
-    <tr align="center">
-        <td><a href="/">Company name / Logo</a></td>
-        <td><a href="/admin/signup">Signup</a></td>
-        <td><a href="/admin">Administrator</a></td>
-    </tr>
-</table>
-<h2>Users</h2>
-<table border="1" width="100%">
-    <tr align="center">
-        <th>User name</th>
-        <th>Surname</th>
-        <th>Email</th>
-        <th>Date of birth</th>
-        <th>Date of registration</th>
-    </tr>
-    <tr th:each="user : ${users}" align="center">
-        <td><p th:text="${user.getName()}"/></td>
-        <td th:text="${user.getSurname()}"/>
-        <td th:text="${user.getEmail()}"/>
-        <td th:text="${user.getDateOfBirth()}"/>
-        <td th:text="${user.getDateOfRegistation()}"/>
-    </tr>
-</table>
-<h2>Roles</h2>
-<table border="1" width="100%">
-    <tr align="center">
-        <th>Name</th>
-    </tr>
-    <tr th:each="role : ${roles}" align="center">
-        <td th:text="${role.getName()}"/>
-    </tr>
-</table>
-<h2>Categories</h2>
-<table border="1" width="100%">
-    <tr align="center">
-        <th>Name</th>
-    </tr>
-    <tr th:each="category : ${categories}" align="center">
-        <td th:text="${category.getName()}"/>
-    </tr>
-</table>
-
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Advert board</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/admin/signup">Signup</a></li>
+                <li><a href="/admin">Administrator</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid">
+    <h2>Users</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>User name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Date of birth</th>
+            <th>Date of registration</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td><p th:text="${user.getName()}"/></td>
+            <td th:text="${user.getSurname()}"/>
+            <td th:text="${user.getEmail()}"/>
+            <td th:text="${user.getDateOfBirth()}"/>
+            <td th:text="${user.getDateOfRegistation()}"/>
+        </tr>
+    </table>
+    <br/>
+    <h2>Roles</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr th:each="role : ${roles}" align="center">
+            <td th:text="${role.getName()}"/>
+        </tr>
+    </table>
+    <br/>
+    <h2>Categories</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr th:each="category : ${categories}" align="center">
+            <td th:text="${category.getName()}"/>
+        </tr>
+    </table>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+</footer>
 </body>
 </html>

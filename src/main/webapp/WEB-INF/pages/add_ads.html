@@ -5,40 +5,87 @@
 <!--layout:decorator="layouts/default">-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Users</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/3.1.0/css/bootstrap.min.css'/>
+    <link rel='text/javascript' href='/webjars/jquery/3.1.1-1/jquery.min.js'/>
+    <link rel='text/javascript' href='/webjars/bootstrap/3.1.0/js/bootstrap.min.js'/>
+    <link rel='stylesheet' href='http://getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css'/>
+
+    <title>Add</title>
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Advert board</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signup">Registration</a></li>
+                <li><a href="/users">Personal Area</a></li>
+                <li><a href="/admin">Administrator</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 <th th:text="${error}"/>
-<h2>Ads</h2>
-<form action="/user/add" method="post">
-    <div>
-        <label for="nameUser">User name</label>
-        <select id="nameUser" name="nameUser">
-            <option th:each="user:${users}" th:text="${user.getName()}"/>
-        </select>
-    </div>
-    <div>
-        <label for="category">Category name</label>
-        <select id="category" name="categoryName">
-            <option th:each="category:${categories}" th:text="${category.getName()}"/>
-        </select>
-    </div>
-    <div>
-        <label for="name">Ads name</label>
-        <input id="name" type="text" name="name"/>
-    </div>
-    <div>
-        <label for="description">Ads description</label>
-        <input id="description" type="text" name="description"/>
-    </div>
-    <div>
-        <label for="price">Ads price</label>
-        <input id="price" type="number" name="price"/>
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7">
+            <h2>Add</h2>
+            <form class="form-horizontal" action="/user/add" method="post">
+                <div class="form-group">
+                    <label for="nameUser" class="col-sm-2 control-label">User</label>
+                    <div class="col-sm-10">
+                        <select id="nameUser" class="form-control" name="nameUser">
+                            <option th:each="user:${users}" th:text="${user.getName()}"/>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category" class="col-sm-2 control-label">Category</label>
+                    <div class="col-sm-10">
+                        <select id="category" class="form-control" name="category">
+                            <option th:each="category:${categories}" th:text="${category.getName()}"/>
+                        </select>
+                    </div>
+                </div>
 
-
-    <input type="submit" value="submit"/>
-</form>
-
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Ads name</label>
+                    <div class="col-sm-10">
+                        <input name="name" type="text" class="form-control" id="name" placeholder="name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-sm-2 control-label">Ads description</label>
+                    <div class="col-sm-10">
+                        <input name="description" type="text" class="form-control" id="description"
+                               placeholder="description"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="col-sm-2 control-label">Ads price</label>
+                    <div class="col-sm-10">
+                        <input name="price" type="number" class="form-control" id="price"
+                               placeholder="price"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Add new ads</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+</footer>
 </body>
 </html>

@@ -5,30 +5,50 @@
 <!--layout:decorator="layouts/default">-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+    <link rel='stylesheet' href='/webjars/bootstrap/3.1.0/css/bootstrap.min.css'/>
+    <link rel='text/javascript' href='/webjars/jquery/3.1.1-1/jquery.min.js'/>
+    <link rel='text/javascript' href='/webjars/bootstrap/3.1.0/js/bootstrap.min.js'/>
+    <link rel='stylesheet' href='http://getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css'/>
     <title>Main page</title>
 </head>
 <body>
-<table border="1" width="100%">
-    <tr align="center">
-        <td><a href="/">Company name / Logo</a></td>
-        <td><a href="/signup">Registration</a></td>
-        <td><a href="/users">Personal Area</a></td>
-        <td><a href="/admin">Administrator</a></td>
-    </tr>
-</table>
-<h2>Adverts</h2>
-<table border="1" width="100%">
-    <tr align="center">
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-    </tr>
-    <tr th:each="adv : ${adverts}" align="center">
-        <td><a th:href="@{/ads(id=${adv.getId()})}"><p th:text="${adv.getName()}"/></a></td>
-        <td th:text="${adv.getDescription()}"/>
-        <td th:text="${adv.getPrice()}"/>
-    </tr>
-</table>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Advert board</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signup">Registration</a></li>
+                <li><a href="/users">Personal Area</a></li>
+                <li><a href="/admin">Administrator</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid">
+    <div class="row text-center table-bordered" th:each="adv : ${adverts}">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row text-center">
+                <div class="col-md-12"><a th:href="@{/ads(id=${adv.getId()})}"><p th:text="${adv.getName()}"/></a></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12"><p th:text="${adv.getDescription()}"/></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">Price: <p th:text="${adv.getPrice()}"/></div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+</footer>
 </body>
 </html>

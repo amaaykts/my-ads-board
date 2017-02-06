@@ -127,8 +127,8 @@ public class AdministratorController {
         System.out.println("/admin/settings/add_role");
 
 //        TODO Добавляем роль
-//        Role role = new Role(name);
-//        roleService.add(role);
+        Role role = new Role(name);
+        roleService.add(role);
         model.addAttribute("success", "Added a new role: " + name);
         System.out.println(name);
         return "admin_registration.html";
