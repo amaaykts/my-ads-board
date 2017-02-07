@@ -34,6 +34,10 @@
         <property name="viewNames" value="*.html,*.xhtml"/>
     </bean>
 
+    <!--Для редиректа, без него не работал-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    </bean>
+
     <!--Стандартный ViewResolver-->
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
     <!--&lt;!&ndash; Перед названием страницы добавляется prefix &ndash;&gt;-->

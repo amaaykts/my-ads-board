@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.MyService;
 
-import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -83,14 +82,14 @@ public class AdministratorController {
                             ParseException e) {
                 e.printStackTrace();
                 model.addAttribute("error", "Incorrect data!");
-                return "admin_registration.html";
+                return "redirect:/admin";
             }
         } else {
             model.addAttribute("error", "Passwords do not match!");
-            return "admin_registration.html"; //Пароли не совпадают
+            return "redirect:/admin"; //Пароли не совпадают
         }
 
-        return "admin_registration.html";
+        return "redirect:/admin";
     }
 
     /**
@@ -114,7 +113,7 @@ public class AdministratorController {
         Category category = new Category(name);
         categoryService.add(category);
         model.addAttribute("success", "Added a new category: " + name);
-        return "admin_registration.html";
+        return "redirect:/admin";
     }
 
     /**
@@ -129,9 +128,10 @@ public class AdministratorController {
 //        TODO Добавляем роль
         Role role = new Role(name);
         roleService.add(role);
-        model.addAttribute("success", "Added a new role: " + name);
+//        model.addAttribute("success", "Added a new role: " + name);
         System.out.println(name);
-        return "admin_registration.html";
+//        return "admin_registration.html";
+        return "redirect:/admin";
     }
 
     private List<Role> getRoles() {

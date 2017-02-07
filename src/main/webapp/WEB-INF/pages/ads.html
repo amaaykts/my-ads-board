@@ -9,34 +9,34 @@
     <link rel='text/javascript' href='/webjars/jquery/3.1.1-1/jquery.min.js'/>
     <link rel='text/javascript' href='/webjars/bootstrap/3.1.0/js/bootstrap.min.js'/>
     <link rel='stylesheet' href='http://getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css'/>
-    <title>Admin</title>
+    <title>Детализация объявления</title>
 </head>
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Advert board</a>
+            <a class="navbar-brand" href="/">Доска объявлений</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/signup">Registration</a></li>
-                <li><a href="/users">Personal Area</a></li>
-                <li><a href="/admin">Administrator</a></li>
+                <li><a href="/signup">Регистрация пользователя</a></li>
+                <li><a href="/users">Личный кабинет</a></li>
+                <li><a href="/admin">Администратор</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container-fluid">
-    <h2>Advert</h2>
+    <h2>Объявление</h2>
     <table class="table table-hover">
         <tr>
-            <th>Number</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Author</th>
+            <th>Номер</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Автор</th>
         </tr>
         <tr>
             <td th:text="${ads.getNumber()}"/>
@@ -50,7 +50,7 @@
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">Напишите тут текст</p>
     </div>
 </footer>
 </body>

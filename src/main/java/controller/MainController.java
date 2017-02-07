@@ -96,13 +96,13 @@ public class MainController {
                             ParseException e) {
                 e.printStackTrace();
                 model.addAttribute("error", "Incorrect data!");
-                return "registration.html";
+                return "redirect:/";
             }
         } else {
             model.addAttribute("error", "Passwords do not match!");
-            return "registration.html"; //Пароли не совпадают
+            return "redirect:/"; //Пароли не совпадают
         }
-        return "registration.html";
+        return "redirect:/";
     }
 
     @RequestMapping("/signin")

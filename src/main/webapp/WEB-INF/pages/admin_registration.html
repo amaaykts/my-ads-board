@@ -4,25 +4,25 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <!--layout:decorator="layouts/default">-->
 <head>
-    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel='stylesheet' href='/webjars/bootstrap/3.1.0/css/bootstrap.min.css'/>
     <link rel='text/javascript' href='/webjars/jquery/3.1.1-1/jquery.min.js'/>
     <link rel='text/javascript' href='/webjars/bootstrap/3.1.0/js/bootstrap.min.js'/>
     <link rel='stylesheet' href='http://getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css'/>
-    <title>Add new roles, categories and administrator</title>
+    <title>Добавить нового пользователя, роль или категорию</title>
 </head>
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Advert board</a>
+            <a class="navbar-brand" href="/">Доска объявлений</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/admin/signup">Signup</a></li>
-                <li><a href="/admin">Administrator</a></li>
+                <li><a href="/admin/signup">Регистрация и т.д.</a></li>
+                <li><a href="/admin">Администратор</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -34,35 +34,35 @@
 
 <div class="container-fluid">
     <div class="row">
-        <h2>Adminstrator</h2>
         <div class="col-md-5">
+            <h2>Добавить пользователя</h2>
             <form class="form-horizontal" action="/admin/signup" method="post">
                 <div class="form-group">
-                    <label for="nameUser" class="col-sm-2 control-label">Name</label>
+                    <label for="nameUser" class="col-sm-2 control-label">Имя</label>
                     <div class="col-sm-10">
-                        <input name="name" type="text" class="form-control" id="nameUser" placeholder="name"/>
+                        <input name="name" type="text" class="form-control" id="nameUser" placeholder="Имя"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="surname" class="col-sm-2 control-label">Surname</label>
+                    <label for="surname" class="col-sm-2 control-label">Фамилия</label>
                     <div class="col-sm-10">
-                        <input name="surname" type="text" class="form-control" id="surname" placeholder="surname"/>
+                        <input name="surname" type="text" class="form-control" id="surname" placeholder="Фамилия"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-sm-2 control-label">Email</label>
+                    <label for="email" class="col-sm-2 control-label">Email адрес</label>
                     <div class="col-sm-10">
-                        <input name="email" type="email" class="form-control" id="email" placeholder="email"/>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email адрес"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="date" class="col-sm-2 control-label">Date of birth</label>
+                    <label for="date" class="col-sm-2 control-label">Дата рождения</label>
                     <div class="col-sm-10">
                         <input name="dateOfBirth" type="date" class="form-control" id="date" placeholder="01.01.2000"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="role" class="col-sm-2 control-label">Roles</label>
+                    <label for="role" class="col-sm-2 control-label">Роли</label>
                     <div class="col-sm-10">
                         <select id="role" class="form-control" name="role">
                             <option th:each="l : ${list}" th:text="${l.getName()}"/>
@@ -70,44 +70,44 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
                     <div class="col-sm-10">
                         <input name="password" type="password" class="form-control" id="inputPassword3"
-                               placeholder="Password"/>
+                               placeholder="Пароль"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="repeatPassword" class="col-sm-2 control-label">Repeat password</label>
+                    <label for="repeatPassword" class="col-sm-2 control-label">Повторите пароль</label>
                     <div class="col-sm-10">
                         <input name="repeatPassword" type="password" class="form-control" id="repeatPassword"
-                               placeholder="Repeat password"/>
+                               placeholder="Повторите пароль"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Sign up</button>
+                        <button type="submit" class="btn btn-default">Зарегистрировать</button>
                     </div>
                 </div>
             </form>
         </div>
 
         <div class="col-md-5">
-            <h2>Roles</h2>
+            <h2>Новая роль</h2>
             <form class="form-inline" action="/admin/settings/add_role" method="post">
                 <div class="form-group">
-                    <label for="nameRole">Name</label>
-                    <input id="nameRole" type="text" name="name" class="form-control" placeholder="user"/>
+                    <label for="nameRole">Название</label>
+                    <input id="nameRole" type="text" name="name" class="form-control" placeholder="Название"/>
                 </div>
-                <button type="submit" class="btn btn-default">Add new role</button>
+                <button type="submit" class="btn btn-default">Добавить новую роль</button>
             </form>
             <br/><br/>
-            <h2>Category</h2>
+            <h2>Новая категория</h2>
             <form class="form-inline" action="/admin/settings/add_category" method="post">
                 <div class="form-group">
-                    <label for="nameCategory">Name</label>
-                    <input id="nameCategory" type="text" name="name" class="form-control" placeholder="Job"/>
+                    <label for="nameCategory">Название</label>
+                    <input id="nameCategory" type="text" name="name" class="form-control" placeholder="Название"/>
                 </div>
-                <button type="submit" class="btn btn-default">Add new category</button>
+                <button type="submit" class="btn btn-default">Добавить новую категорию</button>
             </form>
         </div>
         <div class="col-md-2"></div>
@@ -116,7 +116,7 @@
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">Напишите тут текст</p>
     </div>
 </footer>
 

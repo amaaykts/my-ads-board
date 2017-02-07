@@ -75,7 +75,7 @@ public class UserController {
             model.addAttribute("error", "Error");
             return "add_ads.html";
         }
-        return "add_ads.html";
+        return "redirect:/";
     }
 
 
@@ -99,7 +99,7 @@ public class UserController {
         advert.setDescription(description);
         advertService.update(advert);
 
-        return "user.html";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/user/delete", method = RequestMethod.GET)

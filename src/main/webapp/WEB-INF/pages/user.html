@@ -9,33 +9,33 @@
     <link rel='text/javascript' href='/webjars/jquery/3.1.1-1/jquery.min.js'/>
     <link rel='text/javascript' href='/webjars/bootstrap/3.1.0/js/bootstrap.min.js'/>
     <link rel='stylesheet' href='http://getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css'/>
-    <title>User settings</title>
+    <title>Настройки пользователя</title>
 </head>
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Advert board</a>
+            <a class="navbar-brand" href="/">Доска объявлений</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/signup">Registration</a></li>
-                <li><a href="/users">Personal Area</a></li>
-                <li><a href="/user/add">Add new ads</a></li>
-                <li><a href="/admin">Administrator</a></li>
+                <li><a href="/signup">Регистрация пользователя</a></li>
+                <li><a href="/users">Личный кабинет</a></li>
+                <li><a href="/user/add">Добавить новое объявление</a></li>
+                <li><a href="/admin">Администратор</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container-fluid">
-    <h2>Users</h2>
+    <h2>Пользователи</h2>
     <table class="table table-hover">
         <tr>
-            <th>Name</th>
-            <th>Surname</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
         </tr>
         <tr>
             <td th:text="${user.getName()}"/>
@@ -43,14 +43,14 @@
         </tr>
     </table>
     <br/>
-    <h2>Ads</h2>
+    <h2>Объявления</h2>
     <table class="table table-hover">
         <tr>
-            <th>Number</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Edit</th>
+            <th>Номер</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Редактировать</th>
             <!--<th>Delete</th>-->
         </tr>
         <tr th:each="adv : ${user.getAdverts()}">
@@ -58,13 +58,13 @@
             <td th:text="${adv.getName()}"/>
             <td th:text="${adv.getDescription()}"/>
             <td th:text="${adv.getPrice()}"/>
-            <td><a href="/user/settings?edit=" th:href="@{/user/edit(id=${adv.getId()})}">edit</a></td>
+            <td><a href="/user/settings?edit=" th:href="@{/user/edit(id=${adv.getId()})}">Редактировать</a></td>
         </tr>
     </table>
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">Напишите тут текст</p>
     </div>
 </footer>
 </body>
