@@ -104,10 +104,22 @@ public class UserController {
 
     @RequestMapping(value = "/user/delete", method = RequestMethod.GET)
     public String delete(@RequestParam int id, Model model) {
-        advertService.delete(id);
-//        System.out.println(id);
+        Advert advertGet = (Advert) advertService.get(id);
+
+        for (User user : getUsers()) {
+            for (Advert advert : user.getAdverts()) {
+                if (advertGet.getId() == advert.getId()) {
+                    user.getAdverts().remove(advert);
+                    userService.update(user);
+                    advertGet.setCategory(null);
+                    advertService.update(advertGet);
+                    advertService.delete(id);
+                    return "redirect:/";
+                }
+            }
+        }
 //        System.out.println("/user/settings/delete");
-        return "admin.html";
+        return "redirect:/";
     }
 
 

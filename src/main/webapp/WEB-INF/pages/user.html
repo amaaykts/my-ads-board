@@ -51,7 +51,7 @@
             <th>Описание</th>
             <th>Цена</th>
             <th>Редактировать</th>
-            <!--<th>Delete</th>-->
+            <th>Удалить</th>
         </tr>
         <tr th:each="adv : ${user.getAdverts()}">
             <td th:text="${adv.getNumber()}"/>
@@ -59,6 +59,7 @@
             <td th:text="${adv.getDescription()}"/>
             <td th:text="${adv.getPrice()}"/>
             <td><a href="/user/settings?edit=" th:href="@{/user/edit(id=${adv.getId()})}">Редактировать</a></td>
+            <td><a href="/user/settings?delete=" th:href="@{/user/delete(id=${adv.getId()})}">Удалить</a></td>
         </tr>
     </table>
 </div>
