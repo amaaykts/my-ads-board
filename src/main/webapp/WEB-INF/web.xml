@@ -10,6 +10,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+
     <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
@@ -23,6 +24,13 @@
         <param-name>contextConfiguration</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+
+    <!--Не правильный URL-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404</location>
+    </error-page>
+
 
     <!--Добавляем чтение UTF-8 символов из Form-->
     <filter>

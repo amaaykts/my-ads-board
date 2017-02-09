@@ -48,6 +48,11 @@ public class MainController {
         return "index.html";
     }
 
+    @RequestMapping("/404")
+    public String badRequest(){
+        return "404.html";
+    }
+
     @RequestMapping(value = "/ads", method = RequestMethod.GET)
     public String ads(@RequestParam int id, Model model) {
 
